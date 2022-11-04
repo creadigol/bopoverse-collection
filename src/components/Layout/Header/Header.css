@@ -1,8 +1,20 @@
 .header_main{
-    background: var(--coll_white);
-    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(180deg, #26282A 0%, #212325 100%);
+    box-shadow: 4px 4px 12px 3px rgba(255, 255, 255, 0.1);
 }
 
 .header_main .navbar-nav{
     margin-left: auto;
+}
+
+.header_main .navbar-brand{
+    color: #D7E1EC;
+}
+
+.header_main .navbar-nav .nav-link{
+    color: #D7E1EC;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0px 1.5rem;
 }

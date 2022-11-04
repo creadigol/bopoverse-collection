@@ -1,17 +1,19 @@
 import "./Header.css";
 import { Navbar , Container , Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () =>{
     return(
         <>
             <div className="header_main">
                 <Navbar expand="lg">
-                    <Container fluid>
+                    <Container>
                         <Navbar.Brand href="/">Bopoverse</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                             <Nav>
-                                <Nav.Link href="#action1">Home</Nav.Link>
+                                <Link to="/" className="nav-link" >Home</Link>
+                                <Link to="/project" className="nav-link" >Projects</Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

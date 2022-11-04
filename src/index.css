@@ -8,12 +8,12 @@
 }
 
 body{
-  background: #F0F2F5;
+  background: #212325;
   font-family: 'Mulish', sans-serif;
 }
 
 .card{
-  background: var(--coll_white);
+  background: linear-gradient(135deg, #3A3E41 0%, #2A2D30 49%, #242628 100%), linear-gradient(139deg, #434B54 1%, #2A2C2F 45%, #191B1E 75%);
   box-shadow: 10px 10px 15px rgba(36, 36, 36, 0.1);
   padding: 15px;
   border: 0px;
