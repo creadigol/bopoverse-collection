@@ -6,16 +6,16 @@ import coinbase from "../../assets/image/coinbase.svg";
 import walletconnect from "../../assets/image/walletconnect.svg";
 import arrow from "../../assets/image/arrow.svg";
 import { Link } from "react-router-dom";
-
+import { useConnectedMetaMask, useMetaMask } from 'metamask-react';
+import detectEthereumProvider from '@metamask/detect-provider';
+interface ConnectInfo {
+    chainId: string;
+  }
+  
 const Dashboard = () =>{
-
+    const { status, connect, account, chainId, ethereum } = useMetaMask();
+    
     const walltlist = [
-        {
-            id: 1,
-            walletimg: metamask,
-            walletname: "Metamask",
-            walletnetwork: "ethereum",
-        },
         {
             id: 2,
             walletimg: phantom,
@@ -33,7 +33,23 @@ const Dashboard = () =>{
             walletname: "Wallet connect",
         },
     ]
+    const metamaskConnect = async ()  => {
+       
+        const provider = await detectEthereumProvider();
+        if (provider) {
 
+            console.log('Ethereum successfully detected!')
+          
+            /* @ts-ignore */
+            const chainId = await provider.request({
+              method: 'eth_chainId'
+            })
+          } else {
+          
+            // if the provider is not detected, detectEthereumProvider resolves to null
+            
+          }
+    } 
     return(
         <>
             <div className="page-wrapper">
@@ -51,6 +67,18 @@ const Dashboard = () =>{
                                     {/* Network List */}
                                     <div className="connectwallet_body">
                                         <ul>
+                                        <li onClick={metamaskConnect}>
+                                            <Link to="#" >
+                                                <div className="network_name" >
+                                                    <img src={metamask} alt="metamask" />
+                                                    <h6>Metamask</h6>
+                                                </div>
+                                                <div className="address_list" >
+                                                    <span>ethereum</span>
+                                                    <img src={arrow} alt="arrow" />
+                                                </div>
+                                            </Link>
+                                        </li>
                                             {walltlist.map((w) => (
                                                 <li>
                                                     <Link to="/project" >

@@ -2,8 +2,14 @@ import "./AddBlockchain.css";
 import { Container , Row , Col } from "react-bootstrap";
 import Input from "../../components/Common/Input";
 import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 const AddBlockchain = () =>{
+    const [collection, setCollection ] = useState("");
+    const [symbol, setSymbol ] = useState("");
+    const [mintfee, setMintFee ] = useState("");
+    const [blockchain, setBlockchain ] = useState("");
+    const [maxMintPersion, setMaxMintPersion ] = useState("");
+    const [loyalty, setLoyalty ] = useState("");
     return(
         <>
             <div className="page-wrapper">
@@ -76,9 +82,9 @@ const AddBlockchain = () =>{
                                             </Col>
                                             <Col lg={6} >
                                                 <Input 
-                                                    label= "Royalty (%)"
+                                                    label= "Change Network"
                                                     type= "text"
-                                                    placeholder= "Enter royalty"
+                                                    placeholder= "Select Network"
                                                     className= "generate_contract"
                                                 />
                                             </Col>
