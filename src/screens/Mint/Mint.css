@@ -1,0 +1,69 @@
+.mint_main .card{
+    padding: 40px;
+}
+
+.mint_section{
+    text-align: center;
+}
+
+.mint_section h5{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #242424;
+    margin-bottom: 35px;
+}
+
+.mint_section p{
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 16px;
+}
+
+.mint_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mint_form button{
+    background: rgba(51, 102, 255, 0.2);
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    border: 0px;
+}
+
+.mint_form span{
+    min-width: 150px;
+    display: inline-block;
+    background: rgba(51, 102, 255, 0.2);
+    height: 45px;
+    border-radius: 100px;
+    padding: 10.5px;
+    color: #3366FF;
+    font-weight: 700;
+    margin: 0px 10px;
+}
+
+.minted{
+    margin-top: 1rem;
+}
+
+.mint_section hr{
+    width: 20%;
+    margin: 1.3rem auto;
+    border: 1px dashed rgba(136, 136, 136, 0.8);
+    opacity: 0.8;
+}
+
+.mint_section button.mint_now{
+    background: #3366FF;
+    padding: 12px 25px;
+    border-radius: 100px;
+    color: #fff;
+    border: 0px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}

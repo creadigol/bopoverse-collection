@@ -1,0 +1,108 @@
+.add_blockchain .card{
+    padding: 40px;
+}
+
+.add_block_header h5{
+    color: var(--coll_black);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.add_block_header hr{
+    width: 12%;
+    border: 1px dashed rgba(136, 136, 136, 0.8);
+    opacity: 1;
+    margin: 1.5rem 0;
+}
+
+.add_block_form label{
+    display: block;
+    margin-bottom: 10px;
+    color: #242424;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+}
+
+.add_block_form input{
+    background-color: #eee;
+    min-height: 45px;
+    width: 100%;
+    padding: 10px 15px;
+    max-height: 45px;
+    border-radius: 8px;
+    border: 0px;
+}
+
+.add_block_form input::placeholder{
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+}
+
+.add_block_form input:focus{
+    outline: none;
+    border: 1px solid var(--coll_blue);
+}
+
+/* Collection */
+/* .collection_main{
+    display: flex;
+} */
+
+.generate_contract{
+    margin-bottom: 20px;
+}
+
+.custom_radio input{
+    width: 20px;
+    min-height: 20px;
+    max-height: 20px;
+    margin-right: 10px;
+}
+
+.custom_radio label{
+    margin-bottom: 10px;
+}
+
+.custom_radio_section{
+    display: flex;
+}
+
+.custom_radio_section div{
+    display: flex;
+    margin-right: 20px;
+}
+
+.custom_radio_section label{
+    margin-bottom: 0px;
+    color: #888;
+}
+
+.add_block_footer a{
+    background-color: #3366FF;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 25px;
+    border-radius: 100px;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+}
+
+@media(max-width: 991px){
+    .custom_radio{
+        margin-bottom: 20px;
+    }
+    .add_block_footer hr{
+        margin: 0px 0px 1.5rem 0px;
+    }
+}
+
+@media(max-width: 575px){
+    .add_blockchain .card{
+        padding: 40px 20px;
+    }
+}

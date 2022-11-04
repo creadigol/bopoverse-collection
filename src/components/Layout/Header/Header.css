@@ -1,0 +1,8 @@
+.header_main{
+    background: var(--coll_white);
+    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header_main .navbar-nav{
+    margin-left: auto;
+}

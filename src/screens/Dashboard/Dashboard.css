@@ -1,0 +1,125 @@
+.select_wallet{
+    padding: 50px 0px;
+}
+
+.select_wallet .card{
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.connectwallet_header{
+    text-align: center;
+}
+
+.connectwallet_header h5{
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--coll_black);
+    letter-spacing: 0.3px;
+    margin-bottom: 5px;
+}
+
+.connectwallet_header p{
+    color: var(--coll_gray);
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.select_wallet hr{
+    width: 35%;
+    margin: 1.5rem auto;
+    border: 1px dashed rgba(136,136,136,0.6);
+    opacity: 1;
+}
+
+.connectwallet_body ul{
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.connectwallet_body li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.connectwallet_body li:last-child{
+    margin-bottom: 0px;
+}
+
+.connectwallet_body li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.network_name{
+    display: flex;
+    align-items: center;
+}
+
+.network_name img{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #E5E8EB;
+    border-radius: 100px;
+    padding: 10px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.network_name h6{
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--coll_black);
+}
+
+.address_list span{
+    color: var(--coll_gray);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    margin-right: 15px;
+}
+
+.address_list img{
+    background: rgba(51,102,255,0.2);
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    padding: 7px;
+}
+
+@media(max-width: 480px){
+    .select_wallet .card{
+        padding: 30px;
+    }
+    .address_list span{
+        display: none;
+    }
+    .connectwallet_header h5{
+        font-size: 18px;
+    }
+    .select_wallet hr{
+        margin: 1rem auto;
+    }
+    .network_name img{
+        width: 45px;
+        height: 45px;
+        padding: 7px;
+    }
+    .connectwallet_header p{
+        font-size: 14px;
+    }
+    .network_name h6{
+        font-size: 14px;
+    }
+    .address_list img{
+        width: 20px;
+        height: 20px;
+        padding: 4px;
+    }
+}

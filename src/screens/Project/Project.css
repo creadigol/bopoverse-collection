@@ -1,0 +1,49 @@
+.project_section{
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+    padding: 30px;
+    color: var(--coll_black);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.project_section .card{
+    padding: 40px;
+}
+
+.project_section img{
+    max-width: 128px;
+    margin: 0 auto 10px auto;
+}
+
+.project_section h5{
+    color: var(--coll_black);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.project_section button{
+    display: inline-block;
+}
+
+.project_section a{
+    background: rgba(51, 102, 255, 0.1);
+    color: var(--coll_blue);
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    font-size: 14px;
+}
+
+@media(max-width: 991px){
+    .project_section{
+        margin-bottom: 20px;
+    }
+}
