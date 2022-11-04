@@ -5,7 +5,7 @@
 .title{
     text-align: center;
     padding: 30px;
-    color: var(--coll_black);
+    color: #D7E1EC;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
@@ -20,7 +20,7 @@
 }
 
 .project_section h5{
-    color: var(--coll_black);
+    color: #D7E1EC;
     font-weight: 700;
     letter-spacing: 0.5px;
     margin-bottom: 15px;
@@ -31,14 +31,14 @@
 }
 
 .project_section a{
-    background: rgba(51, 102, 255, 0.1);
-    color: var(--coll_blue);
+    background: rgba(255, 140, 104, 0.2);
+    color: rgba(255, 140, 104, 1);
     padding: 10px 20px;
     display: inline-block;
     border-radius: 100px;
     text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.3px;
+    font-weight: 600;
+    letter-spacing: 1.3px;
     font-size: 14px;
 }
 
