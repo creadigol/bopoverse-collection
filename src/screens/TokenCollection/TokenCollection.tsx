@@ -61,7 +61,7 @@ const TokenCollection = () =>{
                             <Col xl={10} >
                                 <div className="preview_image_header">
                                     <div>
-                                        <Link to="/create" className="transparency_btn" ><img src={arrow} alt="arrow" />Back to edit</Link>
+                                        <Link to="/addlayer" className="transparency_btn" ><img src={arrow} alt="arrow" />Back to edit</Link>
                                         <Link to="/" className="transparency_btn" ><img src={refresh} alt="refresh" />Regenerate Image</Link>
                                     </div>
                                     <Link to="/blockchain" className="orange_btn" >Add collection to blockchain</Link>

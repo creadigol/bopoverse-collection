@@ -191,7 +191,8 @@ const AddBlockchain = () =>{
                                     <div className="add_block_header add_block_footer">
                                         <hr />
                                         {/* <Link to="/mint" >Mint & Generate contract</Link> */}
-                                        <button onClick={generateHandler} className="orange_btn" >Mint & Generate contract</button>
+                                        <button onClick={generateHandler} className="orange_btn" >Mint & Generate contract (With crypto)</button>
+                                        <button onClick={generateHandler} className="orange_btn " >Mint & Generate contract (With creditcard)</button>
                                     </div>
                                 </div>
                             </div>

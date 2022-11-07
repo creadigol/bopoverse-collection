@@ -110,3 +110,8 @@
 .error{
     color: #e30c0c;
 }
+
+
+.add_block_header.add_block_footer button{
+    margin-right: 15px
+}

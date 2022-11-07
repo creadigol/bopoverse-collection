@@ -67,3 +67,9 @@
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+
+.mint_main .orange_btn{
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
