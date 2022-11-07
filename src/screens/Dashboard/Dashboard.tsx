@@ -6,15 +6,37 @@ import coinbase from "../../assets/image/coinbase.svg";
 import walletconnect from "../../assets/image/walletconnect.svg";
 import arrow from "../../assets/image/arrow.svg";
 import { Link } from "react-router-dom";
-import { useConnectedMetaMask, useMetaMask } from 'metamask-react';
-import detectEthereumProvider from '@metamask/detect-provider';
+import { useState, useEffect } from "react";
+//@ts-ignore
+import Web3 from 'web3';
+import { Web3ReactProvider } from '@web3-react/core';
+//@ts-ignore
+import { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { useMetamask }         from "use-metamask";
+import {useNavigate} from 'react-router-dom';
 interface ConnectInfo {
     chainId: string;
   }
-  
+  export const injectedConnector = new InjectedConnector({
+    supportedChainIds: [
+    1, // Mainet
+    3, // Ropsten
+    4, // Rinkeby
+    5, // Goerli
+    42, // Kovan
+    ],
+})
+function getLibrary(provider: any): Web3Provider {
+    const library = new Web3Provider(provider)
+    library.pollingInterval = 12000
+    return library
+}
 const Dashboard = () =>{
-    const { status, connect, account, chainId, ethereum } = useMetaMask();
-    
+    const { connect, metaState } = useMetamask();
+    const [walletKey, setWalletKey] = useState("");
+    const navigate = useNavigate();
     const walltlist = [
         {
             id: 2,
@@ -34,22 +56,28 @@ const Dashboard = () =>{
         },
     ]
     const metamaskConnect = async ()  => {
-       
-        const provider = await detectEthereumProvider();
-        if (provider) {
-
-            console.log('Ethereum successfully detected!')
-          
-            /* @ts-ignore */
-            const chainId = await provider.request({
-              method: 'eth_chainId'
-            })
-          } else {
-          
-            // if the provider is not detected, detectEthereumProvider resolves to null
-            
+        if (!metaState.isConnected) {
+            (async () => {
+              try {
+                await connect(Web3);
+              } catch (error) {
+                console.log(error);
+              }
+            })();
           }
-    } 
+    }
+    useEffect(()=>{
+        console.log("metaState : ", metaState?.account?.[0]);
+        if(metaState.account){
+            setWalletKey(metaState?.account?.[0]);
+        }
+    },[metaState]);
+    useEffect(()=>{
+        console.log("metaState : ", metaState?.account?.[0]);
+        if(walletKey){
+            navigate('/project');
+        }
+    },[walletKey]);
     return(
         <>
             <div className="page-wrapper">

@@ -7,26 +7,25 @@ import { Link } from "react-router-dom";
 import Input from "../../components/Common/Input";
 import pink from "../../assets/image/pink.png";
 import img from "../../assets/image/image.png";
+ /* @ts-ignore */
+import saveImage from 'save-image';
 import { fabric } from "fabric";
 const CreateCollection = () =>{
-    
-   
-    const handleChange = (evnt : any)=>{
-        
-    }
-
-    
+    const canvas = document.getElementById("myCanvas");
+    /* @ts-ignore */
+   const ctx = canvas?.getContext('2d');
+    const [image1, setImage1] = useState("");
+    const [image2, setImage2] = useState("");
+    const [layerName1, setLayerName1] = useState("");
+    const [layerName2, setLayerName2] = useState("");
     const imageOnchange = (evnt : any)=>{
-        const canvas = document.getElementById("myCanvas");
-        if (!canvas) return;
-         /* @ts-ignore */
-        const ctx = canvas.getContext('2d');
         const reader = new FileReader();
         const img = new Image();
         var URL = window.URL;
         var url = URL.createObjectURL(evnt.target.files[0]);
-        
+        setImage1(url);
         img.src = url;
+        //saveImage(img, './public/download.jpeg');
         reader.onload = () => {
             img.onload = () => {
                 /* @ts-ignore */
@@ -39,7 +38,26 @@ const CreateCollection = () =>{
             img.src = reader.result;
         };
         reader.readAsDataURL(evnt.target.files[0]);
-        
+    }
+    const imageOnchange2 = (evnt : any)=>{
+        const reader = new FileReader();
+        const img = new Image();
+        var URL = window.URL;
+        var url = URL.createObjectURL(evnt.target.files[0]);
+        setImage2(url);
+        img.src = url;
+        // reader.onload = () => {
+            img.onload = () => {
+                /* @ts-ignore */
+            canvas.width = img.width;
+                /* @ts-ignore */
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+            };
+            /* @ts-ignore */
+            img.src = url;
+        //};
+        //reader.readAsDataURL(evnt.target.files[0]);
     }
     const loadImage = (src : any, onload : any) =>{
         const img = new Image();
@@ -99,15 +117,15 @@ const CreateCollection = () =>{
                                                             type= "text"
                                                             name="LayerName"
                                                             placeholder= "Enter layer name"
-                                                            onChange={(evnt : any)=>handleChange(evnt)}
-                                                            
+                                                            onChange={(e : any)=>setLayerName1( e.target.value)}
+                                                            value={layerName1}
                                                         />
                                                     </div>
                                                     <hr />
                                                     <div className="layer_list">
                                                         <Row>
                                                             <Col lg={4} md={4} sm={6} >
-                                                                <img src={pink} alt="pink" className="layer_img" />
+                                                                <img src={image1 ? image1 : pink} alt="pink" className="layer_img" />
                                                             </Col>
                                                             <Col lg={4} md={4} sm={6} >
                                                                 <div className="upload_img">
@@ -118,7 +136,7 @@ const CreateCollection = () =>{
                                                                     />
                                                                     <div className="upload_custom" >
                                                                         <div>
-                                                                            <img src={img} alt="image" />
+                                                                            <img src={image1 ? image1 : img} alt="image" />
                                                                             <h6>+ upload</h6>
                                                                         </div>
                                                                     </div>
@@ -140,26 +158,27 @@ const CreateCollection = () =>{
                                                             type= "text"
                                                             name="LayerName"
                                                             placeholder= "Enter layer name"
-                                                            onChange={(evnt : any)=>handleChange(evnt)}
-                                                            
+                                                           
+                                                            onChange={(e : any)=>setLayerName2( e.target.value)}
+                                                            value={layerName2}
                                                         />
                                                     </div>
                                                     <hr />
                                                     <div className="layer_list">
                                                         <Row>
                                                             <Col lg={4} md={4} sm={6} >
-                                                                <img src={pink} alt="pink" className="layer_img" />
+                                                                <img src={image2 ? image2 : pink} alt="pink" className="layer_img" />
                                                             </Col>
                                                             <Col lg={4} md={4} sm={6} >
                                                                 <div className="upload_img">
                                                                     <Input
                                                                         type= "file"
                                                                         placeholder= "Enter layer name"
-                                                                        onChange={(evnt : any)=>imageOnchange(evnt)}
+                                                                        onChange={(evnt : any)=>imageOnchange2(evnt)}
                                                                     />
                                                                     <div className="upload_custom" >
                                                                         <div>
-                                                                            <img src={img} alt="image" />
+                                                                            <img src={image2 ? image2 : pink} alt="image" />
                                                                             <h6>+ upload</h6>
                                                                         </div>
                                                                     </div>

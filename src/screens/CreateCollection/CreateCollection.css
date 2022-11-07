@@ -85,7 +85,7 @@
     border: 0px;
     border-radius: 10px;
     box-shadow: inset 2px 2px 8px rgb(4, 4, 5, 60%);
-    
+    color: #fff;
 }
 
 .layer_name input:focus{
