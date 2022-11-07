@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./CreateCollection.css";
 import { Container , Row , Col } from "react-bootstrap";
 import combine from "../../assets/image/combineimg.png";
@@ -19,6 +19,9 @@ const CreateCollection = () =>{
     const [layerName1, setLayerName1] = useState("");
     const [layerName2, setLayerName2] = useState("");
     const imageOnchange = (evnt : any)=>{
+        const canvas = document.getElementById("myCanvas");
+        /* @ts-ignore */
+       const ctx = canvas?.getContext('2d');
         const reader = new FileReader();
         const img = new Image();
         var URL = window.URL;
@@ -40,24 +43,18 @@ const CreateCollection = () =>{
         reader.readAsDataURL(evnt.target.files[0]);
     }
     const imageOnchange2 = (evnt : any)=>{
-        const reader = new FileReader();
-        const img = new Image();
-        var URL = window.URL;
+        const canvas = document.getElementById("myCanvas");
+        /* @ts-ignore */
+       const ctx = canvas?.getContext('2d');
+         var URL = window.URL;
         var url = URL.createObjectURL(evnt.target.files[0]);
-        setImage2(url);
-        img.src = url;
-        // reader.onload = () => {
-            img.onload = () => {
-                /* @ts-ignore */
-            canvas.width = img.width;
-                /* @ts-ignore */
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
-            };
-            /* @ts-ignore */
-            img.src = url;
-        //};
-        //reader.readAsDataURL(evnt.target.files[0]);
+            setImage2(url);
+                var imageObj1 = new Image();
+                imageObj1.src = url;
+                imageObj1.onload = function() {
+                    ctx.drawImage(imageObj1, 0, 0);
+                };
+       
     }
     const loadImage = (src : any, onload : any) =>{
         const img = new Image();
@@ -76,6 +73,14 @@ const CreateCollection = () =>{
         canvas.height = 100;
     }
 
+    const imageGenerator = () =>{
+        const canvas =   document.getElementById('myCanvas');
+         /* @ts-ignore */
+        const pngUrl = canvas.toDataURL(); 
+        /* @ts-ignore */
+        const jpegUrl = canvas.toDataURL('image/jpeg');
+        localStorage.setItem("nftImage", jpegUrl);
+    } 
      
     return(
         <>
@@ -101,7 +106,8 @@ const CreateCollection = () =>{
                                             <div className="card">
                                                 <div className="generate_section">
                                                     <a>Size 1080*1080</a>
-                                                    <Link to="/blockchain" >Generate collection</Link>
+                                                    <Link to="/nft-collection" onClick={imageGenerator}>Generate collection</Link>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

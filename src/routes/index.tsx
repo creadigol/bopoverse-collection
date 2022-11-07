@@ -19,7 +19,7 @@ const AppMain = () => {
                     <Route path="/create" element={<CreateCollection />} />
                     <Route path="/blockchain" element={<AddBlockchain />} />
                     <Route path="/Mint" element={<Mint />} />
-                    <Route path="/tokencollection" element={<TokenCollection />} />
+                    <Route path="/nft-collection" element={<TokenCollection />} />
                 </Routes>
             </Suspense>
         </>

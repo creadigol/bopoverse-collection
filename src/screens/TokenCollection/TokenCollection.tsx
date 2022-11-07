@@ -9,42 +9,48 @@ import pizza6 from "../../assets/image/36.png";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/image/back_arrow.svg";
 import refresh from "../../assets/image/refresh.svg";
-
+import { useEffect, useState } from "react";
 const TokenCollection = () =>{
-
+    const [image, setImage ] = useState(pizza1);
+    var x = localStorage.getItem("nftImage");
     const data = [
         {
             id: 1,
-            nftimage: pizza1,
+            nftimage: image,
             nftrank: "#0",
         },
         {
             id: 1,
-            nftimage: pizza2,
+            nftimage: image,
             nftrank: "#1",
         },
         {
             id: 1,
-            nftimage: pizza3,
+            nftimage: image,
             nftrank: "#2",
         },
         {
             id: 1,
-            nftimage: pizza4,
+            nftimage: image,
             nftrank: "#3",
         },
         {
             id: 1,
-            nftimage: pizza5,
+            nftimage: image,
             nftrank: "#4",
         },
         {
             id: 1,
-            nftimage: pizza6,
+            nftimage: image,
             nftrank: "#5",
         },
     ]
-
+    useEffect(()=>{
+        const img = localStorage.getItem("nftImage");
+        if(img){
+            setImage(img);
+        }
+    },[localStorage.getItem("nftImage")]);
     return(
         <>
             <div className="page-wrapper">
@@ -55,10 +61,10 @@ const TokenCollection = () =>{
                             <Col xl={10} >
                                 <div className="preview_image_header">
                                     <div>
-                                        <Link to="" className="transparency_btn" ><img src={arrow} alt="arrow" />Back to edit</Link>
-                                        <Link to="" className="transparency_btn" ><img src={refresh} alt="refresh" />Regenerate Image</Link>
+                                        <Link to="/create" className="transparency_btn" ><img src={arrow} alt="arrow" />Back to edit</Link>
+                                        <Link to="/" className="transparency_btn" ><img src={refresh} alt="refresh" />Regenerate Image</Link>
                                     </div>
-                                    <Link to="" className="orange_btn" >Add collection to blockchain</Link>
+                                    <Link to="/blockchain" className="orange_btn" >Add collection to blockchain</Link>
                                 </div>
                                 <Row>
                                     {data.map((d) => (
