@@ -14,7 +14,7 @@ const Project = () =>{
         {
             id: 2,
             projectimg: project,
-            projectname: "ART , NFT",
+            projectname: "Art , Avatars and PFP",
         },
         {
             id: 3,
@@ -28,7 +28,7 @@ const Project = () =>{
             <div className="page-wrapper">
                 <Container>
                     <div className="project_list">
-                        <h4 className="title" >Projects</h4>
+                        <h4 className="title" >Choose project type</h4>
                         <Row>
                             {projectlist.map((l) => (
                                 <Col lg={4} >

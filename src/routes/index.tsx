@@ -6,6 +6,7 @@ import Project from "../screens/Project/Project";
 import CreateCollection from "../screens/CreateCollection/CreateCollection";
 import AddBlockchain from "../screens/AddBlockchain/AddBlockchain";
 import Mint from "../screens/Mint/Mint";
+import TokenCollection from "../screens/TokenCollection/TokenCollection";
 
 const AppMain = () => {
     return (
@@ -18,6 +19,7 @@ const AppMain = () => {
                     <Route path="/create" element={<CreateCollection />} />
                     <Route path="/blockchain" element={<AddBlockchain />} />
                     <Route path="/Mint" element={<Mint />} />
+                    <Route path="/tokencollection" element={<TokenCollection />} />
                 </Routes>
             </Suspense>
         </>
