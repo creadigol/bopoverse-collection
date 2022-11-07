@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { MetamaskStateProvider } from "use-metamask";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MetamaskStateProvider>
+      <App />
+    </MetamaskStateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -2,8 +2,47 @@ import "./AddBlockchain.css";
 import { Container , Row , Col } from "react-bootstrap";
 import Input from "../../components/Common/Input";
 import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 const AddBlockchain = () =>{
+    const navigate = useNavigate();
+    const [collection, setCollection ] = useState("");
+    const [symbol, setSymbol ] = useState("");
+    const [mintfee, setMintFee ] = useState("");
+    const [blockchain, setBlockchain ] = useState("");
+    const [maxMintPersion, setMaxMintPersion ] = useState("");
+    const [loyalty, setLoyalty ] = useState("");
+    const [network, setNetwork ] = useState("");
+    const [mintAllocation, setMintAllocation ] = useState("");
+    const [whoMint, setWhoMint ] = useState("");
+    const [errorObj,setErrorObj] = useState<any>({});
+    const generateHandler = async () =>{
+        let isValid = true;
+        let error = {
+            collectionError: '',
+            symbolError : '',
+            mintfeeError : '',
+            blockchainError : '',
+            maxMintPersionError : '',
+            loyaltyError : '',
+            networkError : '',
+            mintAllocationError : '',
+            whoMintError : '',
+        }
+        if (collection.trim().length === 0) {
+            error = {...error,collectionError:'Enter Valid Collection Name.'};
+            isValid = false;
+        }
+        if (symbol.trim().length === 0) {
+            error = {...error,symbolError:'Enter Collection Symbol.'};
+            isValid = false;
+        }
+        setErrorObj(error);
+        if (isValid) {
+            navigate('/mint');
+        }
+
+    }
     return(
         <>
             <div className="page-wrapper">
@@ -26,7 +65,10 @@ const AddBlockchain = () =>{
                                                             type= "text"
                                                             placeholder= "Enter layer name"
                                                             className= "generate_contract"
+                                                            onChange={(e : any)=>{setCollection(e.target.value); setErrorObj({ ...errorObj, collectionError: '' })}}
+                                                            value={collection}
                                                         />
+                                                        {errorObj?.collectionError && <p className="error" >{errorObj?.collectionError}</p>}
                                                     </Col>
                                                     <Col lg={4} >
                                                         <Input 
@@ -34,7 +76,10 @@ const AddBlockchain = () =>{
                                                             type= "text"
                                                             placeholder= "Symbol"
                                                             className= "generate_contract"
+                                                            onChange={(e : any)=>{setSymbol(e.target.value); setErrorObj({ ...errorObj, symbolError: '' })}}
+                                                            value={symbol}
                                                         />
+                                                        {errorObj?.symbolError && <p className="error" >{errorObj?.symbolError}</p>}
                                                     </Col>
                                                 </Row>
                                             </Col>
@@ -46,6 +91,8 @@ const AddBlockchain = () =>{
                                                             type= "text"
                                                             placeholder= "Enter minting fee"
                                                             className= "generate_contract"
+                                                            onChange={(e : any) =>{setMintFee(e.target.value)}}
+                                                            value={mintfee}
                                                         />
                                                     </Col>
                                                     <Col lg={4} >
@@ -76,9 +123,9 @@ const AddBlockchain = () =>{
                                             </Col>
                                             <Col lg={6} >
                                                 <Input 
-                                                    label= "Royalty (%)"
+                                                    label= "Change Network"
                                                     type= "text"
-                                                    placeholder= "Enter royalty"
+                                                    placeholder= "Select Network"
                                                     className= "generate_contract"
                                                 />
                                             </Col>
@@ -143,7 +190,8 @@ const AddBlockchain = () =>{
                                     </div>
                                     <div className="add_block_header add_block_footer">
                                         <hr />
-                                        <Link to="/mint" >Mint & Generate contract</Link>
+                                        {/* <Link to="/mint" >Mint & Generate contract</Link> */}
+                                        <button onClick={generateHandler}>Mint & Generate contract</button>
                                     </div>
                                 </div>
                             </div>

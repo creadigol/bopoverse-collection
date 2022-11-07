@@ -33,6 +33,7 @@
     max-height: 45px;
     border-radius: 8px;
     border: 0px;
+    color: #fff;
 }
 
 .add_block_form input::placeholder{
@@ -78,7 +79,7 @@
 
 .custom_radio_section label{
     margin-bottom: 0px;
-    color: #888;
+    color: #fff;
 }
 
 .add_block_footer a{
@@ -105,4 +106,7 @@
     .add_blockchain .card{
         padding: 40px 20px;
     }
+}
+.error{
+    color: #e30c0c;
 }

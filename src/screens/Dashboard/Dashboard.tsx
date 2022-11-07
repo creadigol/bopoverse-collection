@@ -6,16 +6,38 @@ import coinbase from "../../assets/image/coinbase.svg";
 import walletconnect from "../../assets/image/walletconnect.svg";
 import arrow from "../../assets/image/arrow.svg";
 import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+//@ts-ignore
+import Web3 from 'web3';
+import { Web3ReactProvider } from '@web3-react/core';
+//@ts-ignore
+import { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { useMetamask }         from "use-metamask";
+import {useNavigate} from 'react-router-dom';
+interface ConnectInfo {
+    chainId: string;
+  }
+  export const injectedConnector = new InjectedConnector({
+    supportedChainIds: [
+    1, // Mainet
+    3, // Ropsten
+    4, // Rinkeby
+    5, // Goerli
+    42, // Kovan
+    ],
+})
+function getLibrary(provider: any): Web3Provider {
+    const library = new Web3Provider(provider)
+    library.pollingInterval = 12000
+    return library
+}
 const Dashboard = () =>{
-
+    const { connect, metaState } = useMetamask();
+    const [walletKey, setWalletKey] = useState("");
+    const navigate = useNavigate();
     const walltlist = [
-        {
-            id: 1,
-            walletimg: metamask,
-            walletname: "Metamask",
-            walletnetwork: "ethereum",
-        },
         {
             id: 2,
             walletimg: phantom,
@@ -33,7 +55,29 @@ const Dashboard = () =>{
             walletname: "Wallet connect",
         },
     ]
-
+    const metamaskConnect = async ()  => {
+        if (!metaState.isConnected) {
+            (async () => {
+              try {
+                await connect(Web3);
+              } catch (error) {
+                console.log(error);
+              }
+            })();
+          }
+    }
+    useEffect(()=>{
+        console.log("metaState : ", metaState?.account?.[0]);
+        if(metaState.account){
+            setWalletKey(metaState?.account?.[0]);
+        }
+    },[metaState]);
+    useEffect(()=>{
+        console.log("metaState : ", metaState?.account?.[0]);
+        if(walletKey){
+            navigate('/project');
+        }
+    },[walletKey]);
     return(
         <>
             <div className="page-wrapper">
@@ -51,6 +95,18 @@ const Dashboard = () =>{
                                     {/* Network List */}
                                     <div className="connectwallet_body">
                                         <ul>
+                                        <li onClick={metamaskConnect}>
+                                            <Link to="#" >
+                                                <div className="network_name" >
+                                                    <img src={metamask} alt="metamask" />
+                                                    <h6>Metamask</h6>
+                                                </div>
+                                                <div className="address_list" >
+                                                    <span>ethereum</span>
+                                                    <img src={arrow} alt="arrow" />
+                                                </div>
+                                            </Link>
+                                        </li>
                                             {walltlist.map((w) => (
                                                 <li>
                                                     <Link to="/project" >
