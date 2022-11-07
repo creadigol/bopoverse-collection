@@ -37,7 +37,7 @@ const Project = () =>{
                                             <div className="project_detail">
                                                 <img src={l.projectimg} alt="project_icon" />
                                                 <h5>{l.projectname}</h5>
-                                                <Link to="/create" >Create collection</Link>
+                                                <Link to="/addlayer" >Create collection</Link>
                                             </div>
                                         </div>
                                     </div>

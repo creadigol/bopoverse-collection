@@ -7,6 +7,8 @@ import CreateCollection from "../screens/CreateCollection/CreateCollection";
 import AddBlockchain from "../screens/AddBlockchain/AddBlockchain";
 import Mint from "../screens/Mint/Mint";
 import TokenCollection from "../screens/TokenCollection/TokenCollection";
+import SigninEmail from "../screens/SigninEmail/SigninEmail";
+import CreateProject from "../screens/CreateProject/CreateProject";
 
 const AppMain = () => {
     return (
@@ -16,10 +18,12 @@ const AppMain = () => {
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/project" element={<Project />} />
-                    <Route path="/create" element={<CreateCollection />} />
+                    <Route path="/addlayer" element={<CreateCollection />} />
                     <Route path="/blockchain" element={<AddBlockchain />} />
                     <Route path="/Mint" element={<Mint />} />
                     <Route path="/tokencollection" element={<TokenCollection />} />
+                    <Route path="/email" element={<SigninEmail />} />
+                    <Route path="/createproject" element={<CreateProject />} />
                 </Routes>
             </Suspense>
         </>

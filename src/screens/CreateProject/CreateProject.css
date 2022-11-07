@@ -1,0 +1,10 @@
+.nft_action img{
+    background-color: rgba(255, 140, 104, 0.2);
+    max-width: 40px;
+    height: 40px!important;
+    min-height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}

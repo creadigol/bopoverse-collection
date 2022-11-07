@@ -16,6 +16,7 @@ import { useWeb3React } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { useMetamask }         from "use-metamask";
 import {useNavigate} from 'react-router-dom';
+import wix from "../../assets/image/wix.svg";
 interface ConnectInfo {
     chainId: string;
   }
@@ -39,10 +40,16 @@ const Dashboard = () =>{
     const navigate = useNavigate();
     const walltlist = [
         {
-            id: 2,
+            id: 1,
             walletimg: phantom,
             walletname: "Phantom",
             walletnetwork: "solana",
+        },
+        {
+            id: 2,
+            walletimg: wix,
+            walletname: "Wix vault",
+            walletnetwork: "Use credit card",
         },
         {
             id: 3,
@@ -109,7 +116,7 @@ const Dashboard = () =>{
                                         </li>
                                             {walltlist.map((w) => (
                                                 <li>
-                                                    <Link to="/project" >
+                                                    <Link to="/createproject" >
                                                         <div className="network_name" >
                                                             <img src={w.walletimg} alt="metamask" />
                                                             <h6>{w.walletname}</h6>
