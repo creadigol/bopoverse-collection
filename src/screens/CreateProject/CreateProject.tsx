@@ -42,7 +42,7 @@ const CreateProject = () =>{
                                             <div className="card">
                                                 <img src={d.nftimage} alt="pizza" />
                                                 <div className="nft_action" >
-                                                    <img src={edit} alt="edit" />
+                                                    <Link to="/addlayer" ><img src={edit} alt="edit" /></Link>
                                                     <img src={delete1} alt="delete" />
                                                 </div>
                                             </div>

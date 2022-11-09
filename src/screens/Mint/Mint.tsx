@@ -42,6 +42,7 @@ const Mint = () =>{
                                         <button className="mint_now" onClick={mintHandler}>Mint  now</button>
                                     </div>
                                 </div>
+                                <a href="https://unity.thepicab.com/" target="_blank" className="orange_btn text-center mt-5 " >Play game soljar</a>
                             </div>
                         </Col>
                     </Row>

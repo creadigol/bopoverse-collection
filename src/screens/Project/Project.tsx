@@ -20,6 +20,19 @@ const Project = () =>{
             id: 3,
             projectimg: project,
             projectname: "ERC 1155",
+            coming: "(soon)"
+        },
+        {
+            id: 4,
+            projectimg: project,
+            projectname: "Tickets",
+            coming: "(soon)"
+        },
+        {
+            id: 5,
+            projectimg: project,
+            projectname: "Music",
+            coming: "(soon)"
         },
     ]
 
@@ -36,7 +49,7 @@ const Project = () =>{
                                         <div className="card">
                                             <div className="project_detail">
                                                 <img src={l.projectimg} alt="project_icon" />
-                                                <h5>{l.projectname}</h5>
+                                                <h5>{l.projectname} <span>{l.coming}</span></h5>
                                                 <Link to="/addlayer" >Create collection</Link>
                                             </div>
                                         </div>

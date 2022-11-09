@@ -1,5 +1,6 @@
 .project_section{
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .title{
@@ -40,6 +41,11 @@
     font-weight: 600;
     letter-spacing: 1.3px;
     font-size: 14px;
+}
+
+.project_detail h5 span{
+    font-size: 14px;
+    font-weight: 400;
 }
 
 @media(max-width: 991px){

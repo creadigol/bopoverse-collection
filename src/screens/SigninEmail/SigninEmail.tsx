@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "./SigninEmail.css";
 import Input from "../../components/Common/Input";
-
+import { Link } from "react-router-dom";
 const SigninEmail = () =>{
     return(
         <>
@@ -24,7 +24,7 @@ const SigninEmail = () =>{
                                             className= "generate_contract"
                                         />
                                     </div>
-                                    <button className="orange_btn" >Start now</button>
+                                    <Link className="orange_btn"  to="/createproject">Start now</Link>
                                 </div>
                             </div>
                         </Col>

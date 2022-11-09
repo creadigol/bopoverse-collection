@@ -82,7 +82,7 @@ const Dashboard = () =>{
     useEffect(()=>{
         console.log("metaState : ", metaState?.account?.[0]);
         if(walletKey){
-            navigate('/project');
+            navigate('/email');
         }
     },[walletKey]);
     return(
@@ -116,7 +116,7 @@ const Dashboard = () =>{
                                         </li>
                                             {walltlist.map((w) => (
                                                 <li>
-                                                    <Link to="/createproject" >
+                                                    <Link to="/email" >
                                                         <div className="network_name" >
                                                             <img src={w.walletimg} alt="metamask" />
                                                             <h6>{w.walletname}</h6>

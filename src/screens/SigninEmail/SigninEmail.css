@@ -18,6 +18,7 @@
     margin-bottom: 0px;
 }
 
-.signin button{
+.signin a{
     border: 0px;
+    text-align: center;
 }

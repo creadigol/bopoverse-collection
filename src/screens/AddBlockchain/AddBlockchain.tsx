@@ -4,6 +4,8 @@ import Input from "../../components/Common/Input";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
+import metamask from "../../assets/image/metamask.svg";
+import wix from "../../assets/image/wix.svg";
 const AddBlockchain = () =>{
     const navigate = useNavigate();
     const [collection, setCollection ] = useState("");
@@ -191,7 +193,8 @@ const AddBlockchain = () =>{
                                     <div className="add_block_header add_block_footer">
                                         <hr />
                                         {/* <Link to="/mint" >Mint & Generate contract</Link> */}
-                                        <button onClick={generateHandler} className="orange_btn" >Mint & Generate contract</button>
+                                        <button onClick={generateHandler} className="orange_btn" ><img src={metamask} alt="metamask" />Mint & Generate contract (With crypto)</button>
+                                        <button onClick={generateHandler} className="orange_btn " ><img src={wix} alt="wix" />Mint & Generate contract (With creditcard)</button>
                                     </div>
                                 </div>
                             </div>

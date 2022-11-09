@@ -9,7 +9,6 @@ import Mint from "../screens/Mint/Mint";
 import TokenCollection from "../screens/TokenCollection/TokenCollection";
 import SigninEmail from "../screens/SigninEmail/SigninEmail";
 import CreateProject from "../screens/CreateProject/CreateProject";
-
 const AppMain = () => {
     return (
         <>
@@ -21,7 +20,7 @@ const AppMain = () => {
                     <Route path="/addlayer" element={<CreateCollection />} />
                     <Route path="/blockchain" element={<AddBlockchain />} />
                     <Route path="/Mint" element={<Mint />} />
-                    <Route path="/tokencollection" element={<TokenCollection />} />
+                    <Route path="/nft-collection" element={<TokenCollection />} />
                     <Route path="/email" element={<SigninEmail />} />
                     <Route path="/createproject" element={<CreateProject />} />
                 </Routes>
